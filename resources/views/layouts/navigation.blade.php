@@ -16,11 +16,21 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('admission')" :active="request()->routeIs('admission')">
+                        {{ __('Admission') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('invoices.index')" :active="request()->routeIs('invoices.index')">
+                        {{ __('Invoice') }}
+                    </x-nav-link>
+
                     @can('lead-management')
                         <x-nav-link :href="route('lead.index')" :active="request()->routeIs('lead.index')">
                             {{ __('Lead') }}
                         </x-nav-link>
                     @endcan
+
+
 
 
                 </div>
@@ -45,6 +55,8 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
+
+
                         @can('user-management')
                             <x-dropdown-link :href="route('user.index')">
                                 {{ __('User') }}
